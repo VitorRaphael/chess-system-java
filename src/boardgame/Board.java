@@ -39,4 +39,13 @@ public class Board {
     public Piece piece(Position position) {
         return pieces[position.getRow()][position.getColumn()];
     }
+
+    // Método para acrescentar peças ao taboleiro
+    public void placePiece(Piece piece,Position position) {
+        // Estamos atribuindo a posição dada a peça
+        pieces[position.getRow()][position.getColumn()] = piece;
+        // Atualizando a posição da peça
+        piece.position = position;
+
+    }
 }
