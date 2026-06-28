@@ -17,4 +17,10 @@ public class Piece {
     protected Board getBoard() { // deixamos ele como protected para não ser acessivel por demais
         return board;
     }
+
+    /* Eu tiro o Set pois não quero que a borda do tabuleiro seja modificada
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+    */
 }
