@@ -18,7 +18,7 @@ public class Program {
        while (true) {
            try {
                UI.clearScreen(); // Chamando o método para limpar a tela
-               UI.printBoard(chessMatch.getPieces());
+               UI.printMatch(chessMatch);
                System.out.println();
                System.out.print("Source: ");
                ChessPosition source = UI.readChessPosition(sc); // sc = Scanner
