@@ -1,6 +1,6 @@
 package boardgame;
 
-public class Piece {
+public abstract class Piece {
 
     // Uma peça tem uma posição incial no tabuleiro, e ela não deve ser acessivel, então vamos
     // usar o protected com ela, para impedir sua violação
@@ -23,4 +23,25 @@ public class Piece {
         this.board = board;
     }
     */
+
+    // Método para definir os possiveis movimentos de uma peça
+    public abstract boolean[][] possibleMoves();
+
+    // Método para definir se é possivel mover uma dada peça para uma dada possição
+    public boolean possibleMove(Position position) {
+        return possibleMoves()[position.getRow()][position.getColumn()];
+    }
+
+    // Método que verifica se existe pelo menos 1 movimento para essa peça
+    public boolean isThereAnyPossibleMove() {
+        boolean[][] mat = possibleMoves();
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat.length; j++) {
+                if (mat[i][j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
