@@ -27,6 +27,13 @@ public class ChessMatch {
         return mat;
     }
 
+    // Método para mostrar todos os possiveis movimentos de uma peça
+    public boolean[][] possibleMoves(ChessPosition sourcePosition) {
+        Position position = sourcePosition.toPosition();
+        validateSourcePosition(position);
+        return board.piece(position).possibleMoves();
+    }
+
     // Método para tirar de uma peça de posição e adicionar a uma nova
     public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
         Position source = sourcePosition.toPosition(); // sourcePosition = posição de origem
