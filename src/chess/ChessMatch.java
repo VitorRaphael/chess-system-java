@@ -31,7 +31,8 @@ public class ChessMatch {
     public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
         Position source = sourcePosition.toPosition(); // sourcePosition = posição de origem
         Position target = targetPosition.toPosition(); // targetPositon = posição de destino
-        validateSourcePosition(source);
+        validateSourcePosition(source); // Validando posição de origem
+        validateTargetPosition(source, target); // Validando posição de destino
         Piece capturedPiece = makeMove(source, target);
         return (ChessPiece)capturedPiece;
     }
@@ -54,6 +55,11 @@ public class ChessMatch {
         }
     }
 
+    private void validateTargetPosition(Position source, Position target) {
+        if (!board.piece(source).possibleMove(target)) {
+            throw new ChessException("The chosen piece can't move to target position");
+        }
+    }
 
     // Operação para colocar peças, passando a posição das coordenadas do xadrez
     private void placeNewPiece(char column, int row, ChessPiece piece) {

@@ -28,6 +28,13 @@ public class Position {
         this.column = column;
     }
 
+    // Método para atualizar os valores de uma posição
+
+    public void setValues(int row, int column) {
+        this.row = row;
+        this.column = column;
+    }
+
     // toString para imprimir a posição na tela
     @Override
     public String toString() {

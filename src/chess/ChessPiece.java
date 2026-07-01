@@ -2,6 +2,7 @@ package chess;
 
 import boardgame.Board;
 import boardgame.Piece;
+import boardgame.Position;
 
 public abstract class ChessPiece extends Piece {
 
@@ -23,4 +24,10 @@ public abstract class ChessPiece extends Piece {
         this.color = color;
     }
     */
+
+    // Metodo para verificar se tem uma peça do oponente no raio de avanço da minha peça
+    protected boolean isThereOpponentPiece(Position position) {
+        ChessPiece p = (ChessPiece)getBoard().piece(position);
+        return p != null &&  p.getColor() != color;
+    }
 }
