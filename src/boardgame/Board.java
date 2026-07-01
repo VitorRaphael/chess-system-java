@@ -43,14 +43,14 @@ public class Board {
 
     // Método para retornar a peça dada uma coluna
     public Piece piece(int row, int column) {
-        if (!positionExist(row, column)) {
+        if (!positionExists(row, column)) {
             throw new BoardException("Position not on the board");
         }
         return pieces[row][column];
     }
     // Método para retornar a peça dada uma posição
     public Piece piece(Position position) {
-        if (!positionExist(position)) {
+        if (!positionExists(position)) {
             throw new BoardException("Position not on the board");
         }
         return pieces[position.getRow()][position.getColumn()];
@@ -68,17 +68,17 @@ public class Board {
     }
 
     // Testando pela linha e coluna do que por posição
-    private boolean positionExist(int row, int column) {
+    private boolean positionExists(int row, int column) {
         return row >= 0 && row < rows && column >= 0 && column < columns;
     }
 
-    public boolean positionExist(Position position) {
-        return positionExist(position.getRow(), position.getColumn());
+    public boolean positionExists(Position position) {
+        return positionExists(position.getRow(), position.getColumn());
     }
 
     // Testando se tem um apeça nessa posição
     public boolean thereIsAPiece(Position position) {
-        if (!positionExist(position)) {
+        if (!positionExists(position)) {
             throw new BoardException("Position not on the board");
         }
         return piece(position) != null;

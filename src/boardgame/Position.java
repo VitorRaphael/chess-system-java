@@ -6,9 +6,9 @@ public class Position {
     private int column;
 
     // Construtor com argumentos
-    public Position(int column, int row) {
-        this.column = column;
+    public Position(int row, int column) {
         this.row = row;
+        this.column = column;
     }
 
     // Getters e Setters
